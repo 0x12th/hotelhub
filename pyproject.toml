@@ -1,0 +1,65 @@
+[project]
+name = "HotelHub"
+version = "0.0.1"
+description = "Hotel booking service"
+authors = [
+    {name = "0x12th", email = "n.biryukov12@gmail.com"},
+]
+dependencies = [
+    "fastapi[all]>=0.103.2",
+]
+requires-python = ">=3.11"
+readme = "README.md"
+license = {text = "MIT"}
+
+
+[tool.pdm.dev-dependencies]
+test = [
+    "pytest>=7.3.1",
+    "pytest-asyncio>=0.21.0",
+    "pytest-cov>=4.1.0",
+    "pytest-mock>=3.10.0",
+]
+lint = [
+    "black>=23.3.0",
+    "mypy>=1.3.0",
+    "ruff>=0.0.272",
+]
+dev = [
+    "pre-commit>=3.3.2",
+]
+
+[tool.ruff]
+line-length = 88
+select = ["F", "E", "W", "C90",
+          "I", "N", "S", "B", "A",
+          "ISC", "T20", "Q", "PTH"]
+
+[tool.black]
+target-version = ["py311"]
+
+[tool.mypy]
+plugins = "pydantic.mypy"
+python_version = "3.11"
+show_error_codes = true
+show_error_context = true
+pretty = true
+ignore_missing_imports = false
+warn_unused_configs = true
+disallow_subclassing_any = true
+disallow_any_generics = true
+disallow_untyped_calls = true
+disallow_untyped_defs = true
+disallow_incomplete_defs = true
+check_untyped_defs = true
+disallow_untyped_decorators = true
+no_implicit_optional = true
+warn_redundant_casts = true
+warn_unused_ignores = true
+warn_return_any = true
+follow_imports_for_stubs = true
+namespace_packages = true
+show_absolute_path = true
+
+[tool.pdm.scripts]
+start = "uvicorn main:app --reload"
