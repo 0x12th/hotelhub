@@ -1,0 +1,27 @@
+version: '3.7'
+
+services:
+  hotelhub_cache:
+    container_name: hotelhub_cache
+    hostname: hotelhub_cache
+    image: redis:7.2-alpine
+    restart: on-failure
+    ports:
+      - "6379:6379"
+
+  hotelhub_db:
+    container_name: hotelhub_db
+    hostname: hotelhub_db
+    image: postgres:15-alpine
+    environment:
+      - POSTGRES_USER=hotelhub
+      - POSTGRES_PASSWORD=hotelhub
+      - POSTGRES_DB=hotelhub
+    volumes:
+      - pgdata:/var/lib/postgresql/data
+    restart: on-failure
+    ports:
+      - "5432:5432"
+
+volumes:
+  pgdata:

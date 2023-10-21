@@ -20,3 +20,11 @@ codespell:
 .PHONY: tests
 tests:
 	pdm run pytest tests/
+
+.PHONY: docker-dev up
+docker-dev up:
+	docker-compose -f docker-compose.dev.yml up -d
+
+.PHONY: dev run
+dev run:
+	docker-compose -f docker-compose.dev.yml up -d && pdm dev

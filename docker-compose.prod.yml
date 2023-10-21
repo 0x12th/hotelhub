@@ -1,0 +1,43 @@
+version: '3.7'
+
+services:
+  hotelhub_app:
+    container_name: hotelhub_app
+    image: hotelhub_app_image
+    env_file:
+      - .env
+    build:
+      context: .
+      dockerfile: Dockerfile
+    volumes:
+      - ./:/src
+    ports:
+      - "8000:8000"
+    depends_on:
+      - hotelhub_db
+      - hotelhub_cache
+
+  hotelhub_cache:
+    container_name: hotelhub_cache
+    hostname: hotelhub_cache
+    image: redis:7.2-alpine
+    restart: on-failure
+    ports:
+      - "6379:6379"
+
+  hotelhub_db:
+    container_name: hotelhub_db
+    hostname: hotelhub_db
+    image: postgres:15-alpine
+    environment:
+      - POSTGRES_USER=${POSTGRES_USER}
+      - POSTGRES_PASSWORD=${POSTGRES_USER}
+      - POSTGRES_DB=${POSTGRES_USER}
+    volumes:
+      - pgdata:/var/lib/postgresql/data
+    restart: on-failure
+    ports:
+      - "5432:5432"
+
+volumes:
+  pgdata:
