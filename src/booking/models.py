@@ -1,9 +1,10 @@
 from datetime import date
 from typing import TYPE_CHECKING
 
-from database import Base
-from sqlalchemy import Date, Float, ForeignKey
+from sqlalchemy import Date, ForeignKey
 from sqlalchemy.orm import Mapped, mapped_column, relationship
+
+from db import Base
 
 if TYPE_CHECKING:
     from room.models import Room
@@ -11,13 +12,11 @@ if TYPE_CHECKING:
 
 
 class Booking(Base):
-    room_id: Mapped[int] = mapped_column(ForeignKey("rooms.id"))
     user_id: Mapped[int] = mapped_column(ForeignKey("users.id"))
+    room_id: Mapped[int] = mapped_column(ForeignKey("rooms.id"))
     date_from: Mapped[date] = mapped_column(Date)
     date_to: Mapped[date] = mapped_column(Date)
-    price: Mapped[float] = mapped_column(
-        Float(precision=2), default=0, server_default="0"
-    )
+    price: Mapped[int] = mapped_column(default=0, server_default="0")
 
     user: Mapped["User"] = relationship(back_populates="booking")
     room: Mapped["Room"] = relationship(back_populates="booking")

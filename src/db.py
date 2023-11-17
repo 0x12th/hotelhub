@@ -1,13 +1,9 @@
-from config import settings
 from sqlalchemy.ext.asyncio import async_sessionmaker, create_async_engine
-from sqlalchemy.orm import (
-    DeclarativeBase,
-    Mapped,
-    declared_attr,
-    mapped_column,
-)
+from sqlalchemy.orm import DeclarativeBase, Mapped, declared_attr, mapped_column
 
-engine = create_async_engine(url=str(settings.POSTGRES_DSN))
+from config import settings
+
+engine = create_async_engine(url=str(settings.POSTGRES_DSN), echo=settings.DB_ECHO)
 
 async_session_maker = async_sessionmaker(
     bind=engine, autoflush=False, expire_on_commit=False
