@@ -26,4 +26,4 @@ COPY --from=builder /hotelhub/__pypackages__/3.11/lib /hotelhub/pkgs
 COPY --from=builder /hotelhub/__pypackages__/3.11/bin/* /bin/
 COPY --from=builder /hotelhub/src/ /hotelhub/src
 
-CMD ["uvicorn", "main:app", "--host", "0.0.0.0", "--port", "8000"]
+CMD ["uvicorn", "main:app", "--host", "0.0.0.0"]
