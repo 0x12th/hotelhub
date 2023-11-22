@@ -1,8 +1,7 @@
 
-# HotelHub
-Hotel booking service
+# HotelHub — hotel booking service
 
-[![Python 3.11.6](https://img.shields.io/badge/python-3.11.6-blue.svg)](https://www.python.org/downloads/release/python-3116/)
+[![Create and publish a Docker image](https://github.com/0x12th/hotelhub/actions/workflows/docker-publish.yml/badge.svg)](https://github.com/0x12th/hotelhub/actions/workflows/docker-publish.yml)
 [![pdm-managed](https://img.shields.io/badge/pdm-managed-blueviolet)](https://pdm-project.org)
 [![pre-commit](https://img.shields.io/badge/pre--commit-enabled-brightgreen?logo=pre-commit)](https://github.com/pre-commit/pre-commit)
 [![Checked with mypy](https://www.mypy-lang.org/static/mypy_badge.svg)](https://mypy-lang.org/)
