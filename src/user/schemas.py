@@ -3,6 +3,14 @@ import re
 from pydantic import BaseModel, EmailStr, field_validator
 
 
+class Token(BaseModel):
+    access_token: str
+
+
+class TokenData(BaseModel):
+    username: str | None = None
+
+
 class UserSchema(BaseModel):
     first_name: str | None
     last_name: str | None
@@ -31,3 +39,8 @@ class UserWithPasswordSchema(UserSchema):
 
 class UserCreateSchema(BaseModel):
     id: int  # noqa: A003
+
+
+class UserLoginSchema(BaseModel):
+    email: str
+    password: str
