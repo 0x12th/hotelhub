@@ -4,11 +4,11 @@ from typing import TYPE_CHECKING
 from sqlalchemy import Date, ForeignKey
 from sqlalchemy.orm import Mapped, mapped_column, relationship
 
-from db import Base
+from src.db import Base
 
 if TYPE_CHECKING:
-    from room.models import Room
-    from user.models import User
+    from src.room.models import Room
+    from src.user.models import User
 
 
 class Booking(Base):

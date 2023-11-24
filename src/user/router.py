@@ -3,11 +3,15 @@ from typing import Annotated, Any
 
 from fastapi import APIRouter, Depends, HTTPException, Response, status
 
-from config import settings
-from user.auth import get_password_hash
-from user.dependencies import authenticate_user, create_access_token, get_current_user
-from user.repository import UserRepository
-from user.schemas import (
+from src.config import settings
+from src.user.auth import get_password_hash
+from src.user.dependencies import (
+    authenticate_user,
+    create_access_token,
+    get_current_user,
+)
+from src.user.repository import UserRepository
+from src.user.schemas import (
     Token,
     UserCreateSchema,
     UserLoginSchema,
@@ -45,13 +49,12 @@ async def register_user(user: UserWithPasswordSchema) -> Any:
     if existing_user:
         raise HTTPException(status_code=400, detail="Email already registered")
     hashed_password = get_password_hash(user.password)
-    new_user = await UserRepository.add(
+    return await UserRepository.add(
         first_name=user.first_name,
         last_name=user.last_name,
         email=user.email,
         password=hashed_password,
     )
-    return new_user
 
 
 @user_router.get("/users/me", response_model=UserSchema)

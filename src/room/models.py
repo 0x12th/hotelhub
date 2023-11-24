@@ -3,11 +3,11 @@ from typing import TYPE_CHECKING
 from sqlalchemy import ForeignKey, String
 from sqlalchemy.orm import Mapped, mapped_column, relationship
 
-from db import Base
+from src.db import Base
 
 if TYPE_CHECKING:
-    from booking.models import Booking
-    from hotel.models import Hotel
+    from src.booking.models import Booking
+    from src.hotel.models import Hotel
 
 
 class Room(Base):

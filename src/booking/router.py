@@ -1,7 +1,7 @@
 from fastapi import APIRouter
 
-from booking.repository import BookingRepository
-from booking.schemas import BookingSchema
+from src.booking.repository import BookingRepository
+from src.booking.schemas import BookingSchema
 
 booking_router = APIRouter(prefix="/bookings", tags=["Bookings"])
 

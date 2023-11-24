@@ -1,9 +1,9 @@
 from fastapi import FastAPI
 
-from booking.router import booking_router
-from hotel.router import hotel_router
-from room.router import room_router
-from user.router import user_router
+from src.booking.router import booking_router
+from src.hotel.router import hotel_router
+from src.room.router import room_router
+from src.user.router import user_router
 
 app = FastAPI()
 

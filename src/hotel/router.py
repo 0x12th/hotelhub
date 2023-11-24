@@ -1,7 +1,7 @@
 from fastapi import APIRouter
 
-from hotel.repository import HotelRepository
-from hotel.schemas import HotelSchema
+from src.hotel.repository import HotelRepository
+from src.hotel.schemas import HotelSchema
 
 hotel_router = APIRouter(prefix="/hotels", tags=["Hotels"])
 

@@ -2,7 +2,7 @@ from pydantic import BaseModel
 
 
 class HotelSchema(BaseModel):
-    id: int  # noqa: A003
+    id: int
     name: str
     country: str
     city: str

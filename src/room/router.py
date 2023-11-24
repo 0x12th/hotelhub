@@ -1,7 +1,7 @@
 from fastapi import APIRouter
 
-from room.repository import RoomRepository
-from room.schemas import RoomSchema
+from src.room.repository import RoomRepository
+from src.room.schemas import RoomSchema
 
 room_router = APIRouter(prefix="/rooms", tags=["Rooms"])
 

@@ -1,5 +1,5 @@
-from base_repository import BaseRepository
-from user.models import User
+from src.base_repository import BaseRepository
+from src.user.models import User
 
 
 class UserRepository(BaseRepository[User]):

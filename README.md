@@ -1,14 +1,13 @@
+<div align="center">
 
 # HotelHub — hotel booking service
 
-[![Create and publish a Docker image](https://github.com/0x12th/hotelhub/actions/workflows/docker-publish.yml/badge.svg)](https://github.com/0x12th/hotelhub/actions/workflows/docker-publish.yml)
-[![pdm-managed](https://img.shields.io/badge/pdm-managed-blueviolet)](https://pdm-project.org)
-[![pre-commit](https://img.shields.io/badge/pre--commit-enabled-brightgreen?logo=pre-commit)](https://github.com/pre-commit/pre-commit)
-[![Checked with mypy](https://www.mypy-lang.org/static/mypy_badge.svg)](https://mypy-lang.org/)
-[![Code style: black](https://img.shields.io/badge/code%20style-black-000000.svg)](https://github.com/psf/black)
-[![Linting: Ruff](https://img.shields.io/endpoint?url=https://raw.githubusercontent.com/charliermarsh/ruff/main/assets/badge/v2.json)](https://github.com/astral-sh/ruff)
-[![MIT License](https://img.shields.io/badge/License-MIT-green.svg)](https://choosealicense.com/licenses/mit/)
-![GitHub commit activity (branch)](https://img.shields.io/github/commit-activity/w/0x12th/hotelhub)
+| CI/CD | [![Build and Push Image](https://github.com/0x12th/hotelhub/actions/workflows/push-image.yml/badge.svg)](https://github.com/0x12th/hotelhub/actions/workflows/push-image.yml) [![Lints](https://github.com/0x12th/hotelhub/actions/workflows/lints.yml/badge.svg)](https://github.com/0x12th/hotelhub/actions/workflows/lints.yml) |
+|:---:|:---:|
+| Activity | ![GitHub commit activity (branch)](https://img.shields.io/github/commit-activity/w/0x12th/hotelhub?&logo=github&logoColor=969da4&labelColor=30353b&color=39A7FF) ![GitHub last commit (branch)](https://img.shields.io/github/last-commit/0x12th/hotelhub/master?&logo=github&logoColor=969da4&labelColor=30353b&color=39A7FF) |
+| Meta | [![pdm-managed](https://img.shields.io/badge/pdm-managed-blueviolet?labelColor=30353b&color=39A7FF)](https://pdm-project.org) [![code style - Ruff](https://img.shields.io/endpoint?url=https://raw.githubusercontent.com/astral-sh/ruff/main/assets/badge/format.json?&logo=ruff&logoColor=969da4&labelColor=30353b&color=39A7FF)](https://github.com/psf/black) [![types - Mypy](https://img.shields.io/badge/types-Mypy-202235.svg?logo=python&labelColor=30353b&color=39A7FF&logoColor=969da4)](https://github.com/python/mypy) [![License - MIT](https://img.shields.io/badge/license-MIT-9400d3.svg?labelColor=30353b&color=39A7FF)](https://spdx.org/licenses/) |
+
+</div>
 
 ## Environment Variables
 To run this project, you will need to add the following environment variables to your .env file

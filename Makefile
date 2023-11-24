@@ -4,14 +4,17 @@ sources = src tests
 lint:
 	pdm run ruff $(sources)
 
-.PHONY: mypy
-mypy:
-	pdm run mypy $(sources)
+.PHONY: fix
+fix:
+	pdm run ruff --fix $(sources)
 
 .PHONY: format
 format:
-	pdm run black $(sources)
-	pdm run ruff --fix $(sources)
+	pdm run ruff format $(sources)
+
+.PHONY: mypy
+mypy:
+	pdm run mypy $(sources)
 
 .PHONY: codespell
 codespell:

@@ -38,7 +38,7 @@ class UserWithPasswordSchema(UserSchema):
 
 
 class UserCreateSchema(BaseModel):
-    id: int  # noqa: A003
+    id: int
 
 
 class UserLoginSchema(BaseModel):

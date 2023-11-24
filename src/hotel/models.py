@@ -3,10 +3,10 @@ from typing import TYPE_CHECKING
 from sqlalchemy import REAL
 from sqlalchemy.orm import Mapped, mapped_column, relationship
 
-from db import Base
+from src.db import Base
 
 if TYPE_CHECKING:
-    from room.models import Room
+    from src.room.models import Room
 
 
 class Hotel(Base):

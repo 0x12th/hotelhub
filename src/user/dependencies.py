@@ -1,13 +1,13 @@
-from datetime import datetime, timedelta
-from typing import Annotated, Any, Optional
+from datetime import UTC, datetime, timedelta
+from typing import Annotated, Any
 
 from fastapi import Depends, HTTPException, Request, status
 from jose import JWTError, jwt
 
-from config import settings
-from user.auth import verify_password
-from user.repository import UserRepository
-from user.schemas import UserCreateSchema, UserSchema
+from src.config import settings
+from src.user.auth import verify_password
+from src.user.repository import UserRepository
+from src.user.schemas import UserCreateSchema, UserSchema
 
 
 def create_access_token(
@@ -15,12 +15,11 @@ def create_access_token(
 ) -> str:
     to_encode = data.copy()
     if expires_delta:
-        expire = datetime.utcnow() + expires_delta
+        expire = datetime.now(tz=UTC) + expires_delta
     else:
-        expire = datetime.utcnow() + timedelta(minutes=15)
+        expire = datetime.now(tz=UTC) + timedelta(minutes=15)
     to_encode.update({"exp": expire})
-    encoded_jwt = jwt.encode(to_encode, settings.SECRET_KEY, settings.ALGORITHM)
-    return encoded_jwt
+    return jwt.encode(to_encode, settings.SECRET_KEY, settings.ALGORITHM)
 
 
 def get_access_token(request: Request) -> str:
@@ -55,7 +54,7 @@ async def get_current_user(
         payload = jwt.decode(
             token, settings.SECRET_KEY, algorithms=[settings.ALGORITHM]
         )
-        user_id: Optional[str] = payload.get("sub")
+        user_id: str | None = payload.get("sub")
         if user_id is None:
             raise credentials_exception
     except JWTError as exc:
